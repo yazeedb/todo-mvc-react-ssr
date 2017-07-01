@@ -1,5 +1,6 @@
 import '../style.scss';
-import React from 'react';
+
+import { createElement as $ } from 'react';
 import ReactDOM from 'react-dom';
 
 import List from '../list';
@@ -7,12 +8,13 @@ import List from '../list';
 import { isBrowser } from '../platform-util';
 
 function Home(props) {
-  const input = React.createElement('input', {
+  const input = $('input', {
     placeholder: 'What needs to be done?',
-    autoFocus: true
+    autoFocus: true,
+    type: 'text'
   });
 
-  return React.createElement('div', {
+  return $('div', {
     className: 'container',
     children: [input, List()]
   });
