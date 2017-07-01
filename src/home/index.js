@@ -8,10 +8,14 @@ import { isBrowser } from '../platform-util';
 
 function Home(props) {
   const title = React.createElement('h1', null, 'todos');
+  const input = React.createElement('input', {
+    placeholder: 'What needs to be done?',
+    autoFocus: true
+  });
 
   return React.createElement('div', {
     className: 'container',
-    children: [title, List()]
+    children: [title, input, List()]
   });
 }
 
