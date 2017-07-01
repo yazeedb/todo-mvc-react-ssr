@@ -1,0 +1,35 @@
+{
+  "name": "todo-mvc-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "server": "nodemon dist/bundle.js",
+    "prewatch": "npm run clean",
+    "watch": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "css-loader": "^0.28.4",
+    "ejs": "^2.5.6",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "pug": "^2.0.0-rc.2",
+    "resource-hints-webpack-plugin": "0.0.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
