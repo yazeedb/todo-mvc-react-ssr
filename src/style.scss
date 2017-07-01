@@ -9,6 +9,7 @@ body {
 
 .container {
   width: 66%;
+  background: white;
   max-width: 550px;
   margin: auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -29,6 +30,7 @@ input[type="text"] {
   padding: 16px;
   border: none;
   outline: none;
+  border-bottom: 2px solid #ededed;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -52,10 +54,12 @@ ul {
 
 li {
   padding: 16px;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #ededed;
 
   &:hover .clear-task {
-    display: block;
+    visibility: visible;
   }
 }
 
@@ -72,11 +76,16 @@ input[type="checkbox"] {
   }
 }
 
+.task-name {
+  flex-basis: 75%;
+  line-height: 40px;
+}
+
 .clear-task {
+  visibility: hidden;
   color: #cc9a9a;
   font-size: 1.5em;
-  display: none;
-  float: right;
+  line-height: 40px;
 
   &:after {
     content: 'x';

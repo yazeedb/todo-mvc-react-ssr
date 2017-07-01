@@ -4,14 +4,14 @@ import { isBrowser } from '../platform-util';
 
 function listItem(text) {
   const checkbox = $('input', { type: 'checkbox' });
-  const clearTask = $('span', { className: 'clear-task' });
   const textContainer = $('span', {
     className: 'task-name',
     children: text
   });
+  const clearTask = $('span', { className: 'clear-task' });
 
   return $('li', {
-    children: [checkbox, clearTask, textContainer]
+    children: [checkbox, textContainer, clearTask]
   });
 }
 
