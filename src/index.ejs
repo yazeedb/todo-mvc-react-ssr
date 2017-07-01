@@ -6,9 +6,15 @@
 
   <title>TodoMVC</title>
 
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="client/main.css">
 </head>
 <body>
-  <%- content -%>
+  <div id="server-content">
+    <%- content -%>
+  </div>
+
+  <div id="client-content"></div>
+
+  <script src="client/bundle.js"></script>
 </body>
 </html>

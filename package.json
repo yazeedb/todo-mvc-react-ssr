@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "server": "nodemon dist/bundle.js",
+    "server": "nodemon dist/server/bundle.js",
     "prewatch": "npm run clean",
     "watch": "webpack --watch"
   },
@@ -24,7 +24,8 @@
     "resource-hints-webpack-plugin": "0.0.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "webpack": "^3.0.0"
+    "webpack": "^3.0.0",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "express": "^4.15.3",
