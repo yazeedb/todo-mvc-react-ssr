@@ -14,7 +14,17 @@ class ListItem extends Component {
     const checkbox = $('input', {
       type: 'checkbox',
       className: this.state.complete ? 'complete' : '',
-      onClick: e => console.log(this, e)
+      onClick: (e) => {
+        this.setState((prev, props) => {
+          const nowComplete = !prev.complete;
+
+          props.todo.complete = nowComplete;
+
+          return {
+            complete: nowComplete
+          };
+        });
+      }
     });
 
     const textContainer = $('span', { className: 'task-name', children: this.state.text });
