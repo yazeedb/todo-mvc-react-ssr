@@ -1,4 +1,4 @@
-import { isBrowser, isNode } from '../platform-util';
+import { isBrowser } from '../platform-util';
 
 function getTodos() {
   return isBrowser() ? JSON.parse(localStorage.getItem('todos')) : [];
