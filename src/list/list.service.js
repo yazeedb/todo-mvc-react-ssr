@@ -13,14 +13,11 @@ function saveTodo(todo, index) {
 }
 
 function updateTodo(todo) {
-  getTodos()
-    .find((t, index) => {
-      if (t.id !== todo.id) {
-        return;
-      }
+  saveTodo(todo, getTodoIndex(todo));
+}
 
-      saveTodo(todo, index);
-    });
+function getTodoIndex(todo) {
+  return getTodos().findIndex(t => t.id === todo.id);
 }
 
 export default { getTodos, saveTodo, updateTodo };
