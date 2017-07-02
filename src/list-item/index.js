@@ -1,5 +1,7 @@
 import { Component, createElement as $ } from 'react';
 
+import ListService from '../list/list.service';
+
 class ListItem extends Component {
   constructor(props) {
     super(props);
@@ -16,12 +18,13 @@ class ListItem extends Component {
       className: this.state.complete ? 'complete' : '',
       onClick: (e) => {
         this.setState((prev, props) => {
-          const nowComplete = !prev.complete;
+          const newStatus = !prev.complete;
 
-          props.todo.complete = nowComplete;
+          props.todo.complete = newStatus;
+          ListService.updateTodo(props.todo);
 
           return {
-            complete: nowComplete
+            complete: newStatus
           };
         });
       }

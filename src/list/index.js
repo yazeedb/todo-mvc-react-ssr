@@ -1,11 +1,10 @@
 import { createElement as $ } from 'react';
 
-import { isBrowser } from '../platform-util';
-
 import ListItemComponent from '../list-item';
+import ListService from './list.service';
 
 function List(props) {
-  const todos = isBrowser() ? JSON.parse(localStorage.getItem('todos')) : [];
+  const todos = ListService.getTodos();
   const listItems = todos.map((t, index) => $(ListItemComponent, { todo: t, key: index }));
 
   return $('ul', { children: listItems });
