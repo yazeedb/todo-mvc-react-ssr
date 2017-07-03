@@ -16,7 +16,7 @@ function Home(props) {
 
   return $('div', {
     className: 'container',
-    children: [input, List()]
+    children: [input, $(List)]
   });
 }
 
