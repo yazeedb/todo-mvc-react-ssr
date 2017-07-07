@@ -7,8 +7,20 @@ const serverConfig = require('./webpack/serverConfig');
 
 const commonConfig = {
   output: { filename: 'bundle.js' },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({

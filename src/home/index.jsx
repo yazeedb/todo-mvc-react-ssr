@@ -1,23 +1,18 @@
-import '../style.scss';
-
-import { createElement as $ } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
+import '../style.scss';
 import List from '../list';
 
 import { isBrowser } from '../platform-util';
 
 function Home(props) {
-  const input = $('input', {
-    placeholder: 'What needs to be done?',
-    autoFocus: true,
-    type: 'text'
-  });
-
-  return $('div', {
-    className: 'container',
-    children: [input, $(List)]
-  });
+  return (
+    <div className='container'>
+      <input type='text' placeholder='What needs to be done?' autoFocus='true'/>
+      <List />
+    </div>
+  );
 }
 
 if (isBrowser()) {
