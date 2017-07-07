@@ -10,7 +10,6 @@ const commonConfig = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
