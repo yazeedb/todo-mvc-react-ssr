@@ -6,7 +6,7 @@ import { __express } from 'ejs';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
-import Home from './src/home';
+import { Home } from './src/home';
 
 const app = express();
 const PORT = 8080;
