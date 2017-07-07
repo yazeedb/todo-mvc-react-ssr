@@ -1,5 +1,5 @@
 import React from 'react';
-import { Component, createElement as $ } from 'react';
+import { Component } from 'react';
 
 import ListItemComponent from '../list-item';
 import ListService from './list.service';
