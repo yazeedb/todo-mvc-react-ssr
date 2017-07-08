@@ -12,6 +12,15 @@ function saveTodo(todo, index) {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function deleteTodo(todo) {
+  const todos = getTodos();
+
+  todos.splice(getTodoIndex(todo), 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
+
+  return todos;
+}
+
 function updateTodo(todo) {
   saveTodo(todo, getTodoIndex(todo));
 }
@@ -20,4 +29,4 @@ function getTodoIndex(todo) {
   return getTodos().findIndex(t => t.id === todo.id);
 }
 
-export default { getTodos, saveTodo, updateTodo };
+export default { getTodos, saveTodo, deleteTodo, updateTodo };

@@ -12,6 +12,10 @@ export class ListItem extends React.Component {
     };
   }
 
+  deleteTodo() {
+    this.setState((prev, props) => this.props.deleteTodo(props.todo));
+  }
+
   updateTodoStatus(e) {
     this.setState((prev, props) => {
       const newStatus = !prev.complete;
@@ -32,7 +36,7 @@ export class ListItem extends React.Component {
       <li>
         <input type='checkbox' className={className} onClick={this.updateTodoStatus.bind(this)} />
         <span className='task-name'>{this.state.text}</span>
-        <span className='clear-task' />
+        <span className='clear-task' onClick={this.deleteTodo.bind(this)} />
       </li>
     );
   }
