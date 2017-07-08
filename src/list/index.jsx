@@ -20,7 +20,7 @@ export class List extends React.Component {
 
   render() {
     const listItems = this.state.todos
-      .map((t, index) => <ListItem todo={t} key={t.text} deleteTodo={this.deleteTodo.bind(this)} />);
+      .map((t, index) => <ListItem todo={t} key={t.id.toString()} deleteTodo={this.deleteTodo.bind(this)} />);
 
     return <ul>{listItems}</ul>
   }
