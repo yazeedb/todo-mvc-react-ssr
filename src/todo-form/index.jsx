@@ -13,7 +13,7 @@ export class TodoForm extends React.Component {
     }
 
     const newTodo = createTodo(todoValue);
-    this.props.respondToChange(newTodo);
+    this.props.appendTodo(newTodo);
   }
 
   render() {

@@ -4,20 +4,14 @@ export function getTodos() {
   return isBrowser() ? JSON.parse(localStorage.getItem('todos')) : [];
 }
 
-// just for now
 export function createTodo(text) {
-  const todos = getTodos();
-  const lastTodo = todos[todos.length - 1];
+  const { generate } = require('shortid');
 
-  const newTodo = {
-    id: lastTodo.id + 1,
+  return {
+    id: generate(),
     text: text,
     complete: false
   };
-
-  todos.push(newTodo);
-
-  return todos;
 }
 
 export function saveTodo(todo, index) {
