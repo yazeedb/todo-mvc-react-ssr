@@ -8,18 +8,28 @@ import { List } from '../list';
 import { isBrowser } from '../platform-util';
 import { getTodos } from '../list/list.service';
 
-export function Home(props) {
-  return (
-    <div className='container'>
-      <TodoForm />
-      <List todos={getTodos()}/>
-    </div>
-  );
+export class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: getTodos()
+    };
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        <TodoForm />
+        <List todos={this.state.todos}/>
+      </div>
+    );
+  }
 }
 
 if (isBrowser()) {
   const clientContainer = document.getElementById('client-content');
   const serverContainer = document.getElementById('server-content');
 
-  ReactDOM.render(Home(), clientContainer, () => document.body.removeChild(serverContainer));
+  ReactDOM.render(<Home />, clientContainer, () => document.body.removeChild(serverContainer));
 }
