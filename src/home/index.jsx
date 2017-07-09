@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import '../style.scss';
 
+import { TodoForm } from '../todo-form';
 import { List } from '../list';
 import { isBrowser } from '../platform-util';
 import { getTodos } from '../list/list.service';
@@ -10,7 +11,7 @@ import { getTodos } from '../list/list.service';
 export function Home(props) {
   return (
     <div className='container'>
-      <input type='text' placeholder='What needs to be done?' autoFocus='true'/>
+      <TodoForm />
       <List todos={getTodos()}/>
     </div>
   );
