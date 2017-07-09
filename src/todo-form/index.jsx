@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListService from '../list/list.service';
+import { createTodo } from '../list/list.service';
 
 export class TodoForm extends React.Component {
   submitTodo(e) {
@@ -11,6 +11,9 @@ export class TodoForm extends React.Component {
     if (!todoValue) {
       return;
     }
+
+    const newTodo = createTodo(todoValue);
+    this.props.respondToChange(newTodo);
   }
 
   render() {

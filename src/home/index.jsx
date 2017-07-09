@@ -17,10 +17,16 @@ export class Home extends React.Component {
     };
   }
 
+  respondToChange(newTodos) {
+    this.setState({ todos: newTodos }, () => {
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+    });
+  }
+
   render() {
     return (
       <div className='container'>
-        <TodoForm />
+        <TodoForm respondToChange={this.respondToChange.bind(this)} />
         <List todos={this.state.todos}/>
       </div>
     );

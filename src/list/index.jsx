@@ -6,10 +6,6 @@ import { deleteTodo } from './list.service';
 export class List extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      todos: props.todos
-    };
   }
 
   deleteTodo(todo) {
@@ -19,7 +15,7 @@ export class List extends React.Component {
   }
 
   render() {
-    const listItems = this.state.todos
+    const listItems = this.props.todos
       .map((t, index) => <ListItem todo={t} key={t.id.toString()} deleteTodo={this.deleteTodo.bind(this)} />);
 
     return <ul>{listItems}</ul>
