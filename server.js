@@ -3,7 +3,7 @@ import express from 'express';
 
 import { __express } from 'ejs';
 
-import { createElement as $ } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src'));
 
 app.get('*', (req, res) => {
-  const html = ReactDOMServer.renderToStaticMarkup($(Home));
+  const html = ReactDOMServer.renderToStaticMarkup(<Home />);
   res.render('index', { content: html });
 });
 
