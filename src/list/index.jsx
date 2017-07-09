@@ -8,15 +8,16 @@ export class List extends React.Component {
     super(props);
   }
 
-  deleteTodo(todo) {
-    this.setState({
-      todos: deleteTodo(todo)
-    });
-  }
-
   render() {
     const listItems = this.props.todos
-      .map((t, index) => <ListItem todo={t} key={t.id.toString()} deleteTodo={this.deleteTodo.bind(this)} />);
+      .map((t, index) => (
+        <ListItem
+          todo={t}
+          key={t.id.toString()}
+          updateTodo={this.props.updateTodo}
+          deleteTodo={this.props.deleteTodo}
+        />
+      ));
 
     return <ul>{listItems}</ul>
   }

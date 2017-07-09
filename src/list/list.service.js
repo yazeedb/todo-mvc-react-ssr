@@ -14,27 +14,16 @@ export function createTodo(text) {
   };
 }
 
-export function saveTodo(todo, index) {
-  const todos = getTodos();
-  index = index || 0;
-
-  todos.splice(index, 1, todo);
-  localStorage.setItem('todos', JSON.stringify(todos));
+export function updateTodo(todoList, todo) {
+  const index = getTodoIndex(todoList, todo);
+  todoList.splice(index, 1, todo);
 }
 
-export function deleteTodo(todo) {
-  const todos = getTodos();
-
-  todos.splice(getTodoIndex(todo), 1);
-  localStorage.setItem('todos', JSON.stringify(todos));
-
-  return todos;
+export function deleteTodo(todoList, todo) {
+  const index = getTodoIndex(todoList, todo);
+  todoList.splice(index, 1);
 }
 
-export function updateTodo(todo) {
-  saveTodo(todo, getTodoIndex(todo));
-}
-
-export function getTodoIndex(todo) {
-  return getTodos().findIndex(t => t.id === todo.id);
+export function getTodoIndex(todoList, todo) {
+  return todoList.findIndex(t => t.id === todo.id);
 }

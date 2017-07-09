@@ -5,38 +5,24 @@ import { updateTodo } from '../list/list.service';
 export class ListItem extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      text: props.todo.text,
-      complete: props.todo.complete
-    };
   }
 
-  deleteTodo() {
-    this.setState((prev, props) => this.props.deleteTodo(props.todo));
-  }
+  updateTodo() {
+    const todo = this.props.todo;
 
-  updateTodoStatus(e) {
-    this.setState((prev, props) => {
-      const newStatus = !prev.complete;
-
-      props.todo.complete = newStatus;
-      updateTodo(props.todo);
-
-      return {
-        complete: newStatus
-      };
-    });
+    todo.complete = !todo.complete;
+    this.props.updateTodo(todo);
   }
 
   render() {
-    const className = this.state.complete ? 'complete' : '';
+    const todo = this.props.todo;
+    const className = todo.complete ? 'complete' : '';
 
     return (
       <li>
-        <input type='checkbox' className={className} onClick={this.updateTodoStatus.bind(this)} />
-        <span className='task-name'>{this.state.text}</span>
-        <span className='clear-task' onClick={this.deleteTodo.bind(this)} />
+        <input type='checkbox' className={className} onClick={this.updateTodo.bind(this)} />
+        <span className='task-name'>{todo.text}</span>
+        <span className='clear-task' onClick={this.props.deleteTodo.bind(this, todo)} />
       </li>
     );
   }
