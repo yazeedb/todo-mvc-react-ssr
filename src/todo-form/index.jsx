@@ -6,7 +6,7 @@ export class TodoForm extends React.Component {
   submitTodo(e) {
     e.preventDefault();
 
-    let todoValue = this.refs.todoInput.value;
+    const todoValue = this.refs.todoInput.value;
 
     if (!todoValue) {
       return;
