@@ -4,7 +4,6 @@ import express from 'express';
 import { __express } from 'ejs';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
 import { Home } from './src/home';
