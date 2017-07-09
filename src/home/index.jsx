@@ -5,13 +5,13 @@ import '../style.scss';
 
 import { List } from '../list';
 import { isBrowser } from '../platform-util';
-import ListService from '../list/list.service';
+import { getTodos } from '../list/list.service';
 
 export function Home(props) {
   return (
     <div className='container'>
       <input type='text' placeholder='What needs to be done?' autoFocus='true'/>
-      <List todos={ListService.getTodos()}/>
+      <List todos={getTodos()}/>
     </div>
   );
 }

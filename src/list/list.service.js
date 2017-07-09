@@ -1,10 +1,10 @@
 import { isBrowser } from '../platform-util';
 
-function getTodos() {
+export function getTodos() {
   return isBrowser() ? JSON.parse(localStorage.getItem('todos')) : [];
 }
 
-function saveTodo(todo, index) {
+export function saveTodo(todo, index) {
   const todos = getTodos();
   index = index || 0;
 
@@ -12,7 +12,7 @@ function saveTodo(todo, index) {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-function deleteTodo(todo) {
+export function deleteTodo(todo) {
   const todos = getTodos();
 
   todos.splice(getTodoIndex(todo), 1);
@@ -21,12 +21,10 @@ function deleteTodo(todo) {
   return todos;
 }
 
-function updateTodo(todo) {
+export function updateTodo(todo) {
   saveTodo(todo, getTodoIndex(todo));
 }
 
-function getTodoIndex(todo) {
+export function getTodoIndex(todo) {
   return getTodos().findIndex(t => t.id === todo.id);
 }
-
-export default { getTodos, saveTodo, deleteTodo, updateTodo };

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ListItem } from '../list-item';
-import ListService from './list.service';
+import { deleteTodo } from './list.service';
 
 export class List extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export class List extends React.Component {
 
   deleteTodo(todo) {
     this.setState({
-      todos: ListService.deleteTodo(todo)
+      todos: deleteTodo(todo)
     });
   }
 

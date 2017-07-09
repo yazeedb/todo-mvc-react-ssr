@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListService from '../list/list.service';
+import { updateTodo } from '../list/list.service';
 
 export class ListItem extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export class ListItem extends React.Component {
       const newStatus = !prev.complete;
 
       props.todo.complete = newStatus;
-      ListService.updateTodo(props.todo);
+      updateTodo(props.todo);
 
       return {
         complete: newStatus
