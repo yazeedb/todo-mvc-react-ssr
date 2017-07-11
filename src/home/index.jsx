@@ -5,7 +5,7 @@ import '../style.scss';
 
 import { TodoForm } from '../todo-form';
 import { List } from '../list';
-import { updateTodo, deleteTodo } from '../list/list.service';
+import { updateTodo, deleteTodo, toggleTodos } from '../list/list.service';
 import { isBrowser } from '../platform-util';
 import { getTodos } from '../list/list.service';
 
@@ -45,10 +45,19 @@ export class Home extends React.Component {
     });
   }
 
+  toggleTodos() {
+    const todoList = this.state.todos;
+    // if any todos are not complete, set them all to completed
+    const hasUncheckedTodos = todoList.filter(t => t.complete === false).length;
+
+    toggleTodos(todoList, !!hasUncheckedTodos);
+    this.saveTodos(todoList);
+  }
+
   render() {
     return (
       <div className='container'>
-        <TodoForm appendTodo={this.appendTodo.bind(this)} />
+        <TodoForm appendTodo={this.appendTodo.bind(this)} toggleTodos={this.toggleTodos.bind(this)} />
         <List todos={this.state.todos} updateTodo={this.updateTodo.bind(this)} deleteTodo={this.deleteTodo.bind(this)}/>
       </div>
     );

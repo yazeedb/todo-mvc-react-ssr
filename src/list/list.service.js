@@ -27,3 +27,7 @@ export function deleteTodo(todoList, todo) {
 export function getTodoIndex(todoList, todo) {
   return todoList.findIndex(t => t.id === todo.id);
 }
+
+export function toggleTodos(todoList, toggleValue) {
+  todoList.forEach(t => t.complete = toggleValue);
+}
