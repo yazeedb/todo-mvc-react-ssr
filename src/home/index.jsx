@@ -5,6 +5,7 @@ import '../style.scss';
 
 import { TodoForm } from '../todo-form';
 import { List } from '../list';
+import { TodoFooter } from '../todo-footer';
 import { updateTodo, deleteTodo, toggleTodos } from '../list/list.service';
 import { isBrowser } from '../platform-util';
 import { getTodos } from '../list/list.service';
@@ -59,6 +60,7 @@ export class Home extends React.Component {
       <div className='container'>
         <TodoForm appendTodo={this.appendTodo.bind(this)} toggleTodos={this.toggleTodos.bind(this)} />
         <List todos={this.state.todos} updateTodo={this.updateTodo.bind(this)} deleteTodo={this.deleteTodo.bind(this)}/>
+        <TodoFooter todos={this.state.todos} />
       </div>
     );
   }
