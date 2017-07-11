@@ -23,14 +23,19 @@ h1 {
   text-align: center;
 }
 
+form {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #ededed;
+}
+
 input[type="text"] {
-  width: 100%;
+  width: 90%;
   font-size: 1em;
   font-style: italic;
   padding: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #ededed;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -91,5 +96,20 @@ input[type="checkbox"] {
 
   &:after {
     content: 'x';
+  }
+}
+
+.toggle-all {
+  color: #e6e6e6;
+  cursor: pointer;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+
+  &:before {
+    content: '❯';
+  }
+
+  &:hover {
+    color: #a99f9f;
   }
 }

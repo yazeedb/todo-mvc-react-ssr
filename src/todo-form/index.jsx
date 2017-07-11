@@ -21,6 +21,7 @@ export class TodoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.submitTodo.bind(this)}>
+        <span className="toggle-all" />
         <input ref='todoInput' type='text' placeholder='What needs to be done?' autoFocus='true' />
       </form>
     );
