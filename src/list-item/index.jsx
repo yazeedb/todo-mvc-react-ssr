@@ -19,8 +19,8 @@ export class ListItem extends React.Component {
     const className = todo.complete ? 'complete' : '';
 
     return (
-      <li>
-        <input type='checkbox' className={className} onClick={this.updateTodo.bind(this)} />
+      <li className={className}>
+        <input type='checkbox' onClick={this.updateTodo.bind(this)} />
         <span className='task-name'>{todo.text}</span>
         <span className='clear-task' onClick={this.props.deleteTodo.bind(this, todo)} />
       </li>
