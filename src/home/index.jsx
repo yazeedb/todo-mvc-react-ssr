@@ -15,7 +15,7 @@ export class Home extends React.Component {
     super(props);
 
     this.state = {
-      todos: getTodos()
+      todos: getTodos() || []
     };
   }
 
